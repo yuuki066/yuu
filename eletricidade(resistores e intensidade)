@@ -1,0 +1,43 @@
+print('vamos calcular elementos da eletricidade')
+print('''[1] resistencia equivalente
+[2] intensidade eletrica
+[3] resistencia equivalente em sistemas em paralelo''')
+num1 = int(input('digite o valor de entrada: '))
+if num1 == 1:
+    print('=-' * 30)
+    print('CALCULO DE RESISTENCIA EQUIVALENTE(Req) em sistema linear')
+    print('=-' * 30)
+    u = float(input('digite o valor da tensão eletrica: '))
+    i = float(input('digite o valor da intensidade eletrica: '))
+    req = u / i
+    print('a resistencia equivalente tem valor de: {}'.format(req))
+elif num1 == 2:
+    print('=-' * 30)
+    print('calculo de intensidade eletrica')
+    print('=-' * 30)
+    p = float(input('digite o valor da potencia eletrica total: '))
+    u = float(input('digite o valor da ddp aplicada: '))
+    i = p / u
+    print('o valor da intensidade eletrica da corrente é: {}'.format(i))
+elif num1 == 3:
+    print('=-' * 40)
+    print('calculo da resistencia equivalente para sistemas em paralelo')
+    print('=-' * 40)
+    r1 = float(input('digite o valor do primeiro resistor: '))
+    r2 = float(input('digite o valor do segundo resistor: '))
+    req = (r1 * r2) / (r1 + r2)
+    opção = int(input('se existir mais algum resistor digite 1: '))
+    if opção == 1:
+        r3 = float(input('digite o valor do terceiro resistor: '))
+        req2 = (r3 * req) / (r3 + req)
+        print('o resistor equivalente tem valor de {:.2f}'.format(req2))
+    else:
+        print('o resistor equivalente tem valor de {:.2f}'.format(req))
+    vari = int(input('quer calcular a intensidade da corrente em cada resistor? se sim, digite 1: '))
+    if vari == 1:
+        u = float(input('digite o valor de U: '))
+        i1 = u / r1
+        i2 = u / r2
+        i3 = u / r3
+    print('a intensidade da corrente em cada resistor é de {:.0f} no de {:.0f}, {:.0f} no de {:.0f} e {:.0f} no de {:.0f}'.format(i1,r1,i2,r2,i3,r3))
+    print('a intensidade total é de {:.0f}'.format(i1 + i2 + i3))
